@@ -1,0 +1,52 @@
+{% extends "contacts/base.html" %}
+
+{% block content %}
+<h2 class="mb-4">
+    {% if form.instance.pk %}
+        Modifier le Contact
+    {% else %}
+        Créer un Nouveau Contact
+    {% endif %}
+</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        {{ form.prenom.label_tag }}
+        {{ form.prenom }}
+        {% if form.prenom.errors %}
+            <div class="alert alert-danger">{{ form.prenom.errors }}</div>
+        {% endif %}
+    </div>
+    <div class="form-group">
+        {{ form.nom.label_tag }}
+        {{ form.nom }}
+        {% if form.nom.errors %}
+            <div class="alert alert-danger">{{ form.nom.errors }}</div>
+        {% endif %}
+    </div>
+    <div class="form-group">
+        {{ form.telephone.label_tag }}
+        {{ form.telephone }}
+        {% if form.telephone.errors %}
+            <div class="alert alert-danger">{{ form.telephone.errors }}</div>
+        {% endif %}
+    </div>
+    <div class="form-group">
+        {{ form.reseau.label_tag }}
+        {{ form.reseau }}
+        {% if form.reseau.errors %}
+            <div class="alert alert-danger">{{ form.reseau.errors }}</div>
+        {% endif %}
+    </div>
+    <div class="form-group">
+        {{ form.categorie.label_tag }}
+        {{ form.categorie }}
+        {% if form.categorie.errors %}
+            <div class="alert alert-danger">{{ form.categorie.errors }}</div>
+        {% endif %}
+    </div>
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+    <a href="{% url 'contact_list' %}" class="btn btn-secondary">Annuler</a>
+</form>
+{% endblock %}

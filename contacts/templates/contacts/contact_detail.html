@@ -1,0 +1,21 @@
+{% extends "contacts/base.html" %}
+
+{% block content %}
+<h2 class="mb-4">Détails du Contact</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{ contact.prenom }} {{ contact.nom }}</h5>
+        <p class="card-text"><strong>Téléphone :</strong> {{ contact.telephone }}</p>
+        <p class="card-text"><strong>Réseau :</strong> {{ contact.reseau }}</p>
+        <p class="card-text"><strong>Catégorie :</strong> {{ contact.categorie }}</p>
+        <p class="card-text"><strong>Date de création :</strong> {{ contact.created_at }}</p>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a href="{% url 'contact_list' %}" class="btn btn-secondary">Retour à la liste</a>
+    <a href="{% url 'contact_update' contact.pk %}" class="btn btn-warning">Modifier</a>
+    <a href="{% url 'contact_delete' contact.pk %}" class="btn btn-danger">Supprimer</a>
+</div>
+{% endblock %}
