@@ -4,31 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion des Contacts</title>
-    <!-- Ajoutez ici vos liens CSS ou frameworks comme Bootstrap -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Ajoutez Tailwind CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <header class="bg-primary text-white text-center py-3">
-        <h1>Gestion des Contacts</h1>
-        <nav>
-            <a href="{% url 'contact_list' %}" class="text-white mx-2">Liste des Contacts</a>
-            <a href="{% url 'contact_create' %}" class="text-white mx-2">Créer un Contact</a>
+<body class="bg-gray-100">
+    <header class="bg-blue-600 text-white text-center py-4">
+        <h1 class="text-3xl font-bold">Gestion des Contacts</h1>
+        <nav class="mt-2">
+            <a href="{% url 'contact_list' %}" class="text-white mx-2 hover:text-gray-200">Liste des Contacts</a>
+            <a href="{% url 'contact_create' %}" class="text-white mx-2 hover:text-gray-200">Créer un Contact</a>
         </nav>
     </header>
 
-    <main class="container my-4">
+    <main class="container mx-auto my-6 p-4 bg-white shadow-lg rounded-lg">
         {% block content %}
         <!-- Le contenu spécifique à chaque page sera inséré ici -->
         {% endblock %}
     </main>
 
-    <footer class="bg-dark text-white text-center py-3 mt-4">
-        <p>&copy; 2025 Gestion des Contacts by Efcharisto BATAMIO</p>
+    <footer class="bg-gray-800 text-white text-center py-4 mt-6">
+        <p>&copy; 2023 Gestion des Contacts</p>
     </footer>
-
-    <!-- Ajoutez ici vos scripts JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

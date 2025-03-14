@@ -1,7 +1,7 @@
 {% extends "contacts/base.html" %}
 
 {% block content %}
-<h2 class="mb-4">
+<h2 class="text-2xl font-bold mb-4">
     {% if form.instance.pk %}
         Modifier le Contact
     {% else %}
@@ -9,44 +9,30 @@
     {% endif %}
 </h2>
 
-<form method="post">
+<form method="post" class="bg-white p-6 rounded-lg shadow-md">
     {% csrf_token %}
-    <div class="form-group">
-        {{ form.prenom.label_tag }}
+    <div class="mb-4">
+<form method="post" class="bg-d5abd p-6 rounded-lg shadow-md">
+        <label class="block text-gray-700">Prénom</label>
         {{ form.prenom }}
-        {% if form.prenom.errors %}
-            <div class="alert alert-danger">{{ form.prenom.errors }}</div>
-        {% endif %}
     </div>
-    <div class="form-group">
-        {{ form.nom.label_tag }}
+    <div class="mb-4">
+        <label class="block text-gray-700">Nom</label>
         {{ form.nom }}
-        {% if form.nom.errors %}
-            <div class="alert alert-danger">{{ form.nom.errors }}</div>
-        {% endif %}
     </div>
-    <div class="form-group">
-        {{ form.telephone.label_tag }}
+    <div class="mb-4">
+        <label class="block text-gray-700">Téléphone</label>
         {{ form.telephone }}
-        {% if form.telephone.errors %}
-            <div class="alert alert-danger">{{ form.telephone.errors }}</div>
-        {% endif %}
     </div>
-    <div class="form-group">
-        {{ form.reseau.label_tag }}
+    <div class="mb-4">
+        <label class="block text-gray-700">Réseau</label>
         {{ form.reseau }}
-        {% if form.reseau.errors %}
-            <div class="alert alert-danger">{{ form.reseau.errors }}</div>
-        {% endif %}
     </div>
-    <div class="form-group">
-        {{ form.categorie.label_tag }}
+    <div class="mb-4">
+        <label class="block text-gray-700">Catégorie</label>
         {{ form.categorie }}
-        {% if form.categorie.errors %}
-            <div class="alert alert-danger">{{ form.categorie.errors }}</div>
-        {% endif %}
     </div>
-    <button type="submit" class="btn btn-primary">Enregistrer</button>
-    <a href="{% url 'contact_list' %}" class="btn btn-secondary">Annuler</a>
+    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Enregistrer</button>
+    <a href="{% url 'contact_list' %}" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Annuler</a>
 </form>
 {% endblock %}

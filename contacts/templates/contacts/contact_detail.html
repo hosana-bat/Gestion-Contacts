@@ -1,21 +1,19 @@
 {% extends "contacts/base.html" %}
 
 {% block content %}
-<h2 class="mb-4">Détails du Contact</h2>
+<h2 class="text-2xl font-bold mb-4">Détails du Contact</h2>
 
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title">{{ contact.prenom }} {{ contact.nom }}</h5>
-        <p class="card-text"><strong>Téléphone :</strong> {{ contact.telephone }}</p>
-        <p class="card-text"><strong>Réseau :</strong> {{ contact.reseau }}</p>
-        <p class="card-text"><strong>Catégorie :</strong> {{ contact.categorie }}</p>
-        <p class="card-text"><strong>Date de création :</strong> {{ contact.created_at }}</p>
-    </div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+    <h3 class="text-xl font-semibold">{{ contact.prenom }} {{ contact.nom }}</h3>
+    <p class="mt-2"><strong>Téléphone :</strong> {{ contact.telephone }}</p>
+    <p class="mt-2"><strong>Réseau :</strong> {{ contact.reseau }}</p>
+    <p class="mt-2"><strong>Catégorie :</strong> {{ contact.categorie }}</p>
+    <p class="mt-2"><strong>Date de création :</strong> {{ contact.created_at }}</p>
 </div>
 
-<div class="mt-3">
-    <a href="{% url 'contact_list' %}" class="btn btn-secondary">Retour à la liste</a>
-    <a href="{% url 'contact_update' contact.pk %}" class="btn btn-warning">Modifier</a>
-    <a href="{% url 'contact_delete' contact.pk %}" class="btn btn-danger">Supprimer</a>
+<div class="mt-4">
+    <a href="{% url 'contact_list' %}" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Retour à la liste</a>
+    <a href="{% url 'contact_update' contact.pk %}" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">Modifier</a>
+    <a href="{% url 'contact_delete' contact.pk %}" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Supprimer</a>
 </div>
 {% endblock %}

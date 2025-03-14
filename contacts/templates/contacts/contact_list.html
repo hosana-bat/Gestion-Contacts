@@ -1,28 +1,28 @@
 {% extends "contacts/base.html" %}
 
 {% block content %}
-<h2 class="mb-4">Liste des Contacts</h2>
-<a href="{% url 'contact_create' %}" class="btn btn-success mb-3">Créer un nouveau contact</a>
+<h2 class="text-2xl font-bold mb-4">Liste des Contacts</h2>
+<a href="{% url 'contact_create' %}" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 mb-4 inline-block">Créer un nouveau contact</a>
 
-<table class="table table-striped">
-    <thead>
+<table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+    <thead class="bg-gray-200">
         <tr>
-            <th>Prénom</th>
-            <th>Nom</th>
-            <th>Téléphone</th>
-            <th>Actions</th>
+            <th class="py-2 px-4 text-left">Prénom</th>
+            <th class="py-2 px-4 text-left">Nom</th>
+            <th class="py-2 px-4 text-left">Téléphone</th>
+            <th class="py-2 px-4 text-left">Actions</th>
         </tr>
     </thead>
     <tbody>
         {% for contact in contacts %}
-        <tr>
-            <td>{{ contact.prenom }}</td>
-            <td>{{ contact.nom }}</td>
-            <td>{{ contact.telephone }}</td>
-            <td>
-                <a href="{% url 'contact_detail' contact.pk %}" class="btn btn-info btn-sm">Détails</a>
-                <a href="{% url 'contact_update' contact.pk %}" class="btn btn-warning btn-sm">Modifier</a>
-                <a href="{% url 'contact_delete' contact.pk %}" class="btn btn-danger btn-sm">Supprimer</a>
+        <tr class="border-b">
+            <td class="py-2 px-4">{{ contact.prenom }}</td>
+            <td class="py-2 px-4">{{ contact.nom }}</td>
+            <td class="py-2 px-4">{{ contact.telephone }}</td>
+            <td class="py-2 px-4">
+                <a href="{% url 'contact_detail' contact.pk %}" class="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600">Détails</a>
+                <a href="{% url 'contact_update' contact.pk %}" class="bg-yellow-500 text-white px-2 py-1 rounded hover:bg-yellow-600">Modifier</a>
+                <a href="{% url 'contact_delete' contact.pk %}" class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">Supprimer</a>
             </td>
         </tr>
         {% endfor %}
